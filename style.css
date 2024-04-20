@@ -152,6 +152,10 @@ body {
     border-radius: 3px;
     cursor: pointer;
     width: 100%;
+    transition: background-color 0.3s ease;
+}
+.add-to-cart-button:hover {
+    background-color: darkslategray; 
 }
 
 @media screen and (min-width: 768px) {

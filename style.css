@@ -24,7 +24,7 @@ body {
 }
 
 .button-container {
-    margin: 0 10px;
+    margin: 35px 10px;
 }
 
 .button {
@@ -165,3 +165,29 @@ body {
         max-width: 500px;
     }
 }
+
+.search-container {
+    
+    align-items: center;
+   
+    padding: 5px;
+}
+
+.search-input {
+    flex: 1;
+    margin-right: 5px;
+}
+
+.search-button {
+    padding: 5px 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #0056b3;
+}
+
+

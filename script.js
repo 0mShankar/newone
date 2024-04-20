@@ -5,6 +5,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const productContainer = document.querySelector('.product-container');
     const buttons = document.querySelectorAll('.button');
+    const searchInput = document.querySelector('.search-input');
+    const searchButton = document.querySelector('.search-button');
+
+    
 
     let currentCategory = null;
 
@@ -138,6 +142,70 @@ document.addEventListener('DOMContentLoaded', function () {
             showCategoryData(currentCategory);
         });
     });
+    
+    searchButton.addEventListener('click', function () {
+        const searchTerm = searchInput.value.trim().toLowerCase();
+
+        if (searchTerm !== '') {
+            showLoader();
+
+            // Filter and display products based on the search term
+            const productCards = document.querySelectorAll('.product-card');
+
+            productCards.forEach(card => {
+                const title = card.querySelector('.product-title').textContent.toLowerCase();
+                const vendor = card.querySelector('.product-vendor').textContent.toLowerCase();
+                const cardMatches = title.includes(searchTerm) || vendor.includes(searchTerm);
+                card.style.display = cardMatches ? 'block' : 'none';
+                
+            });
+
+            hideLoader();
+        }
+    });
+    searchInput.addEventListener('input', function () {
+        const searchTerm = searchInput.value.trim().toLowerCase();
+    
+        if (searchTerm === '') {
+            showAllProducts();
+        }
+    });
+
+    searchInput.addEventListener('keyup', function (event) {
+        if (event.key === 'Enter') {
+            performSearch();
+        }
+    });
+    
+    function performSearch() {
+        const searchTerm = searchInput.value.trim().toLowerCase();
+    
+        if (searchTerm !== '') {
+            showLoader();
+    
+            // Filter and display products based on the search term
+            const productCards = document.querySelectorAll('.product-card');
+    
+            productCards.forEach(card => {
+                const title = card.querySelector('.product-title').textContent.toLowerCase();
+                const vendor = card.querySelector('.product-vendor').textContent.toLowerCase();
+                const cardMatches = title.includes(searchTerm) || vendor.includes(searchTerm);
+                card.style.display = cardMatches ? 'block' : 'none';
+            });
+    
+            hideLoader();
+        } else {
+            showAllProducts();
+        }
+    }
+    
+    function showAllProducts() {
+        const productCards = document.querySelectorAll('.product-card');
+        productCards.forEach(card => {
+            card.style.display = 'block';
+        });
+    }
+
 
     let resizeTimeout;
     window.addEventListener('resize', function () {

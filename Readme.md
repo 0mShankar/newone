@@ -8,6 +8,8 @@
      git clone :https://github.com/0mShankar/newone/tree/master
      
    - Alternatively, download the code as a ZIP file and extract it.
+   
+   https://drive.google.com/file/d/1DX-CrNUPMWuXksLOn5jDLjshAbLBUGiq/view
 
 2. **Navigate to Project Directory:**
 
